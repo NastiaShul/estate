@@ -3,7 +3,7 @@ import { postData } from "../services/services";
 
 function form(formSelector) {
 
-	const form = document.querySelector(formSelector);
+	const form = document.querySelectorAll(formSelector);
 
 	const message = {
 		loading: "Loading...",
@@ -11,7 +11,9 @@ function form(formSelector) {
 		failure: "Something went wrong...",
 	};
 
-	bindPostData(form);
+	form.forEach(item => {
+		bindPostData(item);
+	})
 
 	function bindPostData(form) {
 		form.addEventListener("submit", (e) => {
